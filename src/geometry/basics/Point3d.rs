@@ -4,7 +4,7 @@ use std::ops;
 use crate::IsValid::IsValid;
 
 /// A Point in three-dimensional space
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 pub struct Point3d
 {
     /// The X coordinate

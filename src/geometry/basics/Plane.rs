@@ -65,7 +65,26 @@ impl PartialEq for Plane {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
 
+    #[test]
+    fn is_valid()
+    {
+        // Invalids
+        assert!(!Plane::UNSET.is_valid());
+        assert!(!Plane::new(Point3d::INFINITY, Vector3d::INFINITY, Vector3d::INFINITY).is_valid());
 
+        // Valids
+        assert!(Plane::WORLDXY.is_valid());
+        assert!(Plane::WORLDYZ.is_valid());
+        assert!(Plane::WORLDZX.is_valid());
+    }
+
+    #[test]
+    fn cross_product()
+    {
+        let z = Plane::cross_product(Vector3d::XAXIS, Vector3d::YAXIS);
+        assert_eq!(z, Vector3d::ZAXIS);
+    }
 
 }
