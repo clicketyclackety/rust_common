@@ -3,6 +3,7 @@ use std::ops;
 use crate::IsValid::IsValid;
 
 /// A Point in three-dimensional space
+#[derive(Copy, Clone, Debug)]
 pub struct Vector3d
 {
     /// The X coordinate
@@ -145,11 +146,6 @@ impl  IsValid for Vector3d {
     }
 }
 
-impl Clone for Vector3d {
-    fn clone(&self) -> Vector3d {
-        Vector3d::new(self.x, self.y, self.z)
-    }
-}
 
 impl PartialEq for Vector3d {
     fn eq(&self, other: &Self) -> bool {
